@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+	background: #1D2125;
+	font-family: 'Roboto Condensed', 'Helvetica';
+	color: #ffffff;
+   
+}
+
+a, button, input {
+	outline: none;
+}
+
+@keyframes transition {
+	0% {
+		transform: translateY(100px);
+		opacity: 0;
+	}100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
