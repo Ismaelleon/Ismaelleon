@@ -9,8 +9,13 @@ function Work () {
     let [work, setWork] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/work', {
-            method: 'POST'
+        fetch('http://138.197.68.249:8080/work', {
+            method: 'POST',
+	    credentials: 'include',
+	    headers: {
+		'Content-Type': 'application/json',
+		'Allow-Control-Allow-Origin': 'http://138.197.68.249:3000'
+	    }
         }).then(res => res.json())
         .then(res => {
             setWork(res)
@@ -43,6 +48,7 @@ const MainContent = styled.main`
     padding: 50px;
     display: flex;
     flex-direction: column;
+    overflow-y: hidden;
 
     @media (max-width: 680px) {
         padding: 50px 20px;

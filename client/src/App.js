@@ -7,6 +7,7 @@ import Home from './routes/Home';
 import Work from './routes/Work';
 import About from './routes/About';
 import Contact from './routes/Contact';
+import AdminAuth from './routes/AdminAuth';
 
 function App () {
 	return (
@@ -23,7 +24,10 @@ function App () {
 			<Route exact path="/contact">
 				<Contact />
 			</Route>
-		</Router>
+		    <Route exact path="/admin">
+                <AdminAuth />
+            </Route>
+        </Router>
 	);
 }
 

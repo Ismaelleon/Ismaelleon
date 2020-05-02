@@ -35,6 +35,7 @@ const MainContent = styled.main `
 	padding: 50px;
 	display: flex;
 	align-items: center;
+    overflow-y: hidden;
 
     @media (max-width: 560px) {
         padding: 50px 20px;
@@ -90,7 +91,8 @@ const Cta = styled.button`
 	margin: 10px 0;
 	cursor: pointer;
 	font-weight: bold;
-	animation: transition 1s forwards;
+	overflow-y: hidden;
+    animation: transition 1s forwards;
 	transition-duration: .5s;
 `;
 

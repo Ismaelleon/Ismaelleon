@@ -11,7 +11,7 @@ function Contact () {
 
     function sendMessage (e) {
         e.preventDefault()
-        fetch('http://localhost:8080/message', {
+        fetch('http://138.197.68.249:8080/message', {
             method: 'POST',
             body: JSON.stringify({
                 name: name,
@@ -20,7 +20,7 @@ function Contact () {
             }),
             credentials: 'include',
             headers: {
-                'Allow-Control-Allow-Origin': 'http://localhost:3000',
+                'Allow-Control-Allow-Origin': 'http://138.197.68.249:3000',
                 'Content-Type': 'application/json'
             }
         })
@@ -57,6 +57,7 @@ function Contact () {
 const MainContent = styled.main`
 	width: 100%;
 	display: flex;
+    overflow-y: hidden;
 
     @media (max-width: 820px) {
         flex-direction: column;

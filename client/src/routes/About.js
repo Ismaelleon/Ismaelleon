@@ -28,6 +28,7 @@ const MainContent = styled.main`
 	width: 100%;
 	padding: 20px 30px;
 	animation: transition 1s forwards;
+    overflow-y: hidden;
 `;
 
 const Title = styled.h1`
@@ -38,6 +39,7 @@ const Title = styled.h1`
 const Text = styled.p`
 	font-size: 24px;
 	padding: 10px 0;
+    overflow-y: hidden;
 `;
 
 export default About;
