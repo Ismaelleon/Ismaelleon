@@ -12,9 +12,8 @@ router.post('/', async (req, res) => {
     let correctPassword = await bcrypt.compare(req.body.password, password.password);
 
     if (correctPassword) {
-        res.status(200).end()
-    } else {
-        res.status(401).end()
+        res.cookie('id', password.password.slice(31))
+        res.end()
     }
 })
 

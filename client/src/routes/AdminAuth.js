@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { Redirect } from 'react-router-dom';
 
-function AdminAuth () {
+function AdminAuth (props) {
     let [password, setPassword] = useState('');
 
     function submitAuth () {
@@ -16,17 +15,12 @@ function AdminAuth () {
                 'Allow-Control-Allow-Origin': 'http://138.197.68.249:3000',
                 'Content-Type': 'application/json'
             }
-        }).then(res => {
-            if (res.status === 200) {
-                return <Redirect to="/admin_panel" />
-            }
         })
     }
 
     return(
         <Container>
             <AdminForm>
-
                 <FormTitle>Admin Panel</FormTitle>
                 <PasswordInput type="password" onChange={e => setPassword(e.target.value)} />
                 <SubmitForm onClick={submitAuth}>Ingresar</SubmitForm>
