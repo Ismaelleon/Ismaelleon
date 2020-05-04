@@ -35,7 +35,6 @@ const MainContent = styled.main `
 	padding: 50px;
 	display: flex;
 	align-items: center;
-    overflow-y: hidden;
 
     @media (max-width: 560px) {
         padding: 50px 20px;
@@ -82,16 +81,16 @@ const Quote = styled.p`
 const Cta = styled.button`
 	background: #E7A633;
 	color: #ffffff;
-	transform: skew(-.100rad) !important;
+	transform: skew(-0.1rad) !important;
 	outline: none;
 	border: none;
 	display: block;
 	font-size: 20px;
-	padding: 5px 15px;
+	font-family: 'Roboto Condensed';
+    padding: 5px 15px;
 	margin: 10px 0;
 	cursor: pointer;
 	font-weight: bold;
-	overflow-y: hidden;
     animation: transition 1s forwards;
 	transition-duration: .5s;
 `;
@@ -111,7 +110,7 @@ const Images = styled.div`
     }
 
     @media (max-width: 560px) {
-        left: calc(40%);
+        right: calc(10%);
         top: -5%;
     }
 `;

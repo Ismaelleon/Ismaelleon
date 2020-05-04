@@ -4,14 +4,12 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 body {
 	background: #1D2125;
 	font-family: 'Roboto Condensed', 'Helvetica';
 	color: #ffffff;
-   
 }
 
 a, button, input {

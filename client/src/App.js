@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import Cookies from 'universal-cookie';
 import styled from 'styled-components';
 
 // Import routes
@@ -14,7 +13,6 @@ import AdminPanel from './routes/AdminPanel';
 
 
 function App () {
-    const cookies = new Cookies();
     let [auth, setAuth] = useState(false);
 
     useEffect(() => {
@@ -23,7 +21,7 @@ function App () {
         } else {
             setAuth(false)
         }
-    })
+    }, [])
 
 	return (
 		<Router>
