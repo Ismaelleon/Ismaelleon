@@ -32,19 +32,37 @@ router.post('/new_project', (req, res) => {
     newProject.save()
 })
 
-// Get db data
-router.post('/get_data', async (req, res) => {
-    if (req.body.option === 'messages') {
-        let messages = await Messages.find({});
+// Get Projects
+router.post('/get_projects', async (req, res) => {
+    let projects = await Work.find({});
 
-        res.json({messages: messages})
-        res.end()
-    } else if (req.body.option === 'projects') {
-        let projects = await Work.find({});
+    res.json({projects: projects})
+    res.end()
+})
 
-        res.json({projects: projects})
-        res.end()
-    }
+// Get Messages
+router.post('/get_messages', async (req, res) => {
+    let messages = await Message.find({});
+
+    res.json({messages: messages})
+    res.end()
+})
+
+// Delete Project
+router.post('/delete_project', async (req, res) => {
+    let projectToDelete = await Work.remove({title: req.body.title});
+    let projects = await Work.find({});
+
+    res.json({projects: projects})
+    res.end()
+})
+
+router.post('/delete_message', async (req, res) => {
+    let messageToDelete = await Message.remove({message: req.body.message});
+    let messages = await Message.find({});
+
+    res.json({messages: messages})
+    res.end()
 })
 
 // New Password (comment this)

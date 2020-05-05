@@ -57,9 +57,4 @@ const Text = styled.p`
     overflow-y: hidden;
 `;
 
-const TechSVG = styled.svg`
-    width: 50px;
-    height: 50px;
-`;
-
 export default About;

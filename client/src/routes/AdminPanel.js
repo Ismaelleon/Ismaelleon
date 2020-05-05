@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 function AdminPanel () {
@@ -7,8 +7,42 @@ function AdminPanel () {
         [githubURL, setGithubURL] = useState(''),
         [tags, setTags] = useState('');
     let [form, setForm] = useState(false);
-    let [option, setOption] = useState('messages');
-    let [data, setData] = useState([]);
+    let [projects, setProjects] = useState([]);
+    let [messages, setMessages] = useState([]);
+
+    useEffect(() => {
+        // Update Messages and Projects
+        getMessages()
+        getProjects()
+    }, [])
+
+    function getProjects () {
+        fetch('http://138.197.68.249:8080/admin/get_projects', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'Allow-Control-Allow-Origin': 'http://138.197.68.249:3000'
+            }
+        }).then(res => res.json())
+        .then(res => {
+            setProjects(res.projects)
+        })
+    }
+
+    function getMessages () {
+        fetch('http://138.197.68.249:8080/admin/get_messages', {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'Allow-Control-Allow-Origin': 'http://138.197.68.249:3000'
+            }
+        }).then(res => res.json())
+            .then(res => {
+                setMessages(res.messages)
+            })
+    }
 
     function submitProject () {
         fetch('http://138.197.68.249:8080/admin/new_project', {
@@ -24,24 +58,42 @@ function AdminPanel () {
                 'Content-Type': 'application/json',
                 'Allow-Control-Allow-Origin': 'http://138.197.68.249:3000'
             }
+        }).then(() => {
+            getProjects()
         })
     }
 
-    function getData () {
-        console.log(option)
-        fetch('http://138.197.68.249:8080/admin/get_data', {
+    function deleteProject (projectTitle) {
+        fetch('http://138.197.68.249:8080/admin/delete_project', {
             method: 'POST',
             body: JSON.stringify({
-                option: option
+                title: projectTitle
             }),
             credentials: 'include',
             headers: {
                 'Content-Type': 'application/json',
-                'Allow-Control-Allow-Origin': 'http://138.197.68.249:3000'
+                'Allow-Control-Allow-Origin': 'http://183.197.68.249:3000'
             }
         }).then(res => res.json())
             .then(res => {
-                setData(res)
+                setProjects(res.projects)
+            })
+    }
+
+    function deleteMessage (message) {
+         fetch('http://138.197.68.249:8080/admin/delete_message', {
+            method: 'POST',
+            body: JSON.stringify({
+                message: message
+            }),
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json',
+                'Allow-Control-Allow-Origin': 'http://183.197.68.249:3000'
+            }
+        }).then(res => res.json())
+            .then(res => {
+                setMessages(res.messages)
             })
     }
 
@@ -51,26 +103,42 @@ function AdminPanel () {
                 <AdminTitle>Admin Panel</AdminTitle>
             </AdminHeader>
             <AdminMain>
-                <AdminSelect onChange={(e) => {setOption(e.target.value); getData();}}>
-                    <AdminOption value="messages">Messages</AdminOption>
-                    <AdminOption value="projects">Projects</AdminOption>
-                </AdminSelect>
-                <Add onClick={() => setForm(true)}>Nuevo</Add>
+                <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <Title>Projects</Title>
+                    <AdminButton onClick={() => setForm(true)}>New Project</AdminButton>
+                </div>
                 <AdminList>
-                    {data.map((project, index) => <li>
-                            <p>{project.title}</p>
-                            <p>{project.date}</p>
-                        </li>
+                    {projects.map((project, index) =>
+                        <AdminItem key={index}>
+                            <div>
+                                <p style={{fontSize: '20px'}}>{project.title}</p>
+                                <p style={{fontSize: '18px'}}>{project.date}</p>
+                            </div>
+                            <DeleteItem onClick={() => deleteProject(project.title)}>Borrar</DeleteItem>
+                        </AdminItem>
+                    )}
+                </AdminList>
+                <Title>Messages</Title>
+                <AdminList>
+                    {messages.map((message, index) =>
+                        <AdminItem key={index}>
+                            <div>
+                                <p style={{fontSize: '20px'}}>{message.name}</p>
+                                <p style={{fontSize: '18px'}}>{message.message}</p>
+                            </div>
+                            <DeleteItem onClick={() => deleteMessage(message.message)}>Borrar</DeleteItem>
+                        </AdminItem>
                     )}
                 </AdminList>
                 <AdminModal style={form ? {display: 'block'} : {display: 'none'}}>
-                    <ModalTitle>Nuevo Proyecto</ModalTitle>
+                    <ModalTitle>New Project</ModalTitle>
                     <ModalForm>
                         <AdminInput onChange={e => setTitle(e.target.value)} type="text" placeholder="Título"></AdminInput>
                         <AdminInput onChange={e => setDate(e.target.value)} type="date" placeholder="Fecha"></AdminInput>
                         <AdminInput onChange={e => setGithubURL(e.target.value)} type="text" placeholder="Github URL"></AdminInput>
                         <AdminInput onChange={e => setTags(e.target.value)} type="text" placeholder="Tags" />
-                        <SubmitProject onClick={() => {submitProject(); setForm(false)}}>Guardar Proyecto</SubmitProject>
+                        <AdminButton onClick={() => {submitProject(); setForm(false)}}>Save Project</AdminButton>
+                        <AdminButton onClick={() => {setForm(false)}}>Cancel</AdminButton>
                     </ModalForm>
                 </AdminModal>
             </AdminMain>
@@ -95,33 +163,27 @@ const AdminTitle = styled.p`
     color: #ffffff;
 `;
 
+const Title = styled.h2`
+    font-size: 34px;
+    margin: 10px 0;
+`;
+
 const AdminMain = styled.div`
     width: 80%;
     margin: auto;
     padding: 20px;
 `;
 
-const AdminSelect = styled.select`
+const AdminButton = styled.button`
     font-size: 20px;
-    border: none;
-    background: rgb(231,166,51);
-    padding: 10px 15px;
+    padding: 10px 10px;
     color: #ffffff;
-    outline: none;
-`;
-
-const AdminOption = styled.option`
-    padding: 10px 15px;
-`;
-
-const Add = styled.button`
-    font-size: 20px;
-    padding: 10px 15px;
-    color: #ffffff;
+    border-radius: 3px;
+    font-family: 'Roboto Condensed';
+    font-weight: bold;
     outline: none;
     border: none;
     background: rgb(231, 166, 51);
-    margin: 0 20px;
     cursor: pointer;
 `;
 
@@ -130,6 +192,21 @@ const AdminList = styled.ul`
     min-height: 50vh;
     border: rgb(231,166,51) solid 1px;
     margin: 10px 0;
+    list-style: none;
+`;
+
+const AdminItem = styled.li`
+    padding: 5px 10px;
+    border-bottom: rgba(231, 166, 51, .18) solid 1px;
+    display: flex;
+    align-items: center;
+`;
+
+const DeleteItem = styled.span`
+    color: rgb(255, 0, 0);
+    margin-left: auto;
+    font-size: 20px;
+    cursor: pointer;
 `;
 
 const AdminModal = styled.div`
@@ -173,16 +250,6 @@ const AdminInput = styled.input`
     padding: 5px;
     margin: 5px 0;
     color: #ffffff;
-    font-family: 'Roboto Condensed';
-`;
-
-const SubmitProject = styled.button`
-    font-size: 20px;
-    color: #ffffff;
-    background: rgb(231, 166, 51);
-    border: none;
-    padding: 5px;
-    border-radius: 3px;
     font-family: 'Roboto Condensed';
 `;
 
