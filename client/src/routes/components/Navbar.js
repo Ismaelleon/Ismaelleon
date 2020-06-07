@@ -49,6 +49,10 @@ const Nav = styled.div `
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+
+    @media (max-width: 540px) {
+        padding: 20px;
+    }
 `;
 
 const Logo = styled.p`

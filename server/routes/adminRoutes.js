@@ -20,6 +20,19 @@ router.post('/', async (req, res) => {
     }
 })
 
+// Checking admin authentication using cookies
+router.post('/auth', async (req, res) => {
+    let password = await Password.findOne({});
+    let correctPassword = await bcrypt.compare(req.body.id, password.password);
+
+    if (correctPassword) {
+        res.json({auth: true})
+    } else {
+        console.log('wrong password')
+        res.json({auth: false})
+    }
+})
+
 // Add new project
 router.post('/new_project', (req, res) => {
     let newProject = new Work({

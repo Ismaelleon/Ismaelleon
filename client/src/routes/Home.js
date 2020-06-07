@@ -14,15 +14,14 @@ function Home () {
 				<About>
 					<Title>Welcome</Title>
 					<Quote>
-						I'm Ismael León. I started coding when I was 13
-						years old and that has completely changed my life.
-						Now I am 16 years old and I'm a full-stack web
-						developer.
+		                I'm Ismael León, I make nice web applications
+                        for people who want to take their business or
+                        projects to the next level.
 					</Quote>
-					<Link style={{textDecoration: 'none', display: 'inline-block'}} to="/work"><Cta>See My Work</Cta></Link>
+					<Link style={{transform: 'skew(-.1rad)', textDecoration: 'none', display: 'inline-block'}} to="/work"><Cta>See My Work</Cta></Link>
 				</About>
 				<Images>
-					<img src={Image} alt="Ismael León" width="400px" style={ImageStyle} draggable="false" />
+					<img src={Image} alt="Ismael León" className="image" style={ImageStyle} draggable="false" />
 				</Images>
 			</MainContent>
 		</div>
@@ -35,6 +34,11 @@ const MainContent = styled.main `
 	padding: 50px;
 	display: flex;
 	align-items: center;
+    flex-direction: row;
+
+    @media (max-width: 920px) {
+        flex-direction: column;
+    }
 
     @media (max-width: 560px) {
         padding: 50px 20px;
@@ -47,9 +51,8 @@ const About = styled.div`
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 820px) {
-        width: auto;
-        max-width: 80%;
+    @media (max-width: 920px) {
+        width: 100%;
     }
 
     @media (max-width: 560px) {
@@ -81,14 +84,13 @@ const Quote = styled.p`
 const Cta = styled.button`
 	background: #E7A633;
 	color: #ffffff;
-	transform: skew(-0.1rad) !important;
 	outline: none;
 	border: none;
 	display: block;
 	font-size: 20px;
 	font-family: 'Roboto Condensed';
     padding: 5px 15px;
-	margin: 10px 0;
+	margin: 15px 0;
 	cursor: pointer;
 	font-weight: bold;
     animation: transition 1s forwards;
@@ -102,11 +104,9 @@ const Images = styled.div`
 	justify-content: center;
 	align-items: center;
 
-    @media (max-width: 820px) {
-        position: absolute;
-        top: 20%;
-        left: 30%;
-        z-index: -1;
+    @media (max-width: 920px) {
+        width: 100%;
+        height: 50vh;
     }
 
     @media (max-width: 560px) {

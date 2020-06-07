@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+// Import Components
+import Navbar from './components/Navbar';
+
 function AdminPanel () {
     let [title, setTitle] = useState(''),
         [date, setDate] = useState(''),
@@ -99,9 +102,7 @@ function AdminPanel () {
 
     return (
         <Container>
-            <AdminHeader>
-                <AdminTitle>Admin Panel</AdminTitle>
-            </AdminHeader>
+            <Navbar />
             <AdminMain>
                 <div style={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                     <Title>Projects</Title>
@@ -151,18 +152,6 @@ const Container = styled.div`
     height: 100vh;
 `;
 
-const AdminHeader = styled.header`
-    width: 100%;
-    padding: 15px 20px;
-    background: #1D2125;
-    box-shadow: rgba(0, 0, 0, .18) 0 1px 5px;
-`;
-
-const AdminTitle = styled.p`
-    font-size: 24px;
-    color: #ffffff;
-`;
-
 const Title = styled.h2`
     font-size: 34px;
     margin: 10px 0;
@@ -172,6 +161,10 @@ const AdminMain = styled.div`
     width: 80%;
     margin: auto;
     padding: 20px;
+
+    @media (max-width: 640px) {
+        width: 100%;
+    }
 `;
 
 const AdminButton = styled.button`

@@ -44,7 +44,6 @@ function Contact () {
 						<Title>Social</Title>
 							<ul style={{listStyle: 'none'}}>
 								<ListItem><a style={linkStyle} href="https://twitter.com/IsmaelLen9">Twitter</a></ListItem>
-								<ListItem><a style={linkStyle} href="https://instagram.com/h0munc10">Instagram</a></ListItem>
 								<ListItem><a style={linkStyle} href="https://github.com/Ismaelleon">GitHub</a></ListItem>
 							</ul>
 					</Social>
@@ -111,6 +110,7 @@ const Input = styled.input`
 	padding: 5px 0;
 	border-bottom: #E7A633 solid 2px;
 	margin: 10px 0;
+    font-family: 'Roboto Condensed';
 `;
 
 const Message = styled.textarea`
@@ -119,6 +119,7 @@ const Message = styled.textarea`
 	color: #ffffff;
 	font-size: 20px;
 	padding: 5px 0;
+    font-family: 'Roboto Condensed';
 	border-bottom: #E7A633 solid 2px;
 	margin: 10px 0;
 `;
@@ -130,6 +131,7 @@ const SendMessage = styled.button`
 	color: #ffffff;
 	font-size: 20px;
 	margin: 10px 0;
+    font-family: 'Roboto Condensed';
 	font-weight: bold;
 	transform: skew(-.100rad) !important;
 `;

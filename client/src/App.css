@@ -16,6 +16,16 @@ a, button, input {
 	outline: none;
 }
 
+.image {
+    width: 400px;
+}
+
+@media (max-width: 920px) {
+    .image {
+        width: 300px;
+    }
+}
+
 @keyframes transition {
 	0% {
 		transform: translateY(100px);

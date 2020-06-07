@@ -16,10 +16,21 @@ function App () {
     let [auth, setAuth] = useState(false);
 
     useEffect(() => {
-        if (document.cookie.slice(3).length === 31) {
-            setAuth(true)
-        } else {
-            setAuth(false)
+        if (window.location.pathname === '/admin_panel') {
+            fetch('http://138.197.68.249:8080/admin/auth', {
+                method: 'POST',
+                body: JSON.stringify({
+                    id: document.cookie.slice(3)
+                }),
+                credentials: 'include',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Allow-Control-Allow-Origin': 'http://138.197.68.249:3000'
+                }
+            }).then(res => res.json())
+            .then(res => {
+                setAuth(res.auth)
+            })
         }
     }, [])
 
