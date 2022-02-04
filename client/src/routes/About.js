@@ -31,23 +31,34 @@ const linkStyle = {
 
 const MainContent = styled.main`
 	width: 100%;
-	padding: 50px;
+	padding: var(--h4) var(--h2);
 	animation: transition 1s forwards;
+	height: calc(100vh - 64px);
+	max-width: 1200px;
+	margin: auto;
 
-    @media (max-width: 540px) {
-        padding: 20px;
+    @media (max-width: 670px) {
+        padding: var(--h5);
     }
 `;
 
 const Title = styled.h1`
-	font-size: 34px;
-	letter-spacing: 5px;
+	font-size: var(--h2);
+	letter-spacing: .28rem;
+
+	@media (max-width: 820px) {
+		font-size: var(--h3);
+	}
 `;
 
 const Text = styled.p`
-	font-size: 24px;
-	padding: 10px 0;
+	font-size: var(--h3);
+	padding: .5rem 0;
     overflow-y: hidden;
+
+	@media (max-width: 820px) {
+		font-size: var(--h4);
+	}
 `;
 
 export default About;

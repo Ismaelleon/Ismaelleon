@@ -30,51 +30,53 @@ function Home () {
 
 const MainContent = styled.main `
 	width: 100%;
-	height: calc(100vh - 78px);
-	padding: 50px;
-	display: flex;
+	height: calc(100vh - 64px);
+	padding: var(--h4) var(--h2);
+	display: grid;
+	grid-template-columns: 1fr 1fr;
 	align-items: center;
     flex-direction: row;
+	max-width: 1200px;
+	margin: auto;
 
-    @media (max-width: 920px) {
-        flex-direction: column;
-    }
-
-    @media (max-width: 560px) {
-        padding: 50px 20px;
+    @media (max-width: 670px) {
+		grid-template-columns: 1fr;
+		flex-direction: column;
+        padding: var(--h5);
     }
 `;
 
 const About = styled.div`
-	width: 40%;
 	animation: transition 1s forwards;
     display: flex;
     flex-direction: column;
 
-    @media (max-width: 920px) {
-        width: 100%;
+    @media (max-width: 670px) {
+		grid-row: 2 / 3;
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 670px) {
         width: 100%;
     }
 `;
 
 const Title = styled.h1`
-	font-size: 34px;
-	letter-spacing: 5px;
-	margin: 10px 0;
+	font-size: var(--h1);
+	letter-spacing: .28rem;
+	margin: .5rem 0;
 
     @media (max-width: 820px) {
+		font-size: var(--h2);
         background: #1D2125;
         width: 160px;
     }
 `;
 
 const Quote = styled.p`
-	font-size: 24px;
+	font-size: var(--h3);
 
     @media (max-width: 820px) {
+		font-size: var(--h4);
         background: #1D2125;
         display: inline;
         width: 100%;
@@ -83,33 +85,33 @@ const Quote = styled.p`
 
 const Cta = styled.button`
 	background: #E7A633;
-	color: #ffffff;
+	color: #fff;
 	outline: none;
 	border: none;
 	display: block;
-	font-size: 20px;
+	font-size: var(--h5);
 	font-family: 'Roboto Condensed';
-    padding: 5px 15px;
-	margin: 15px 0;
+    padding: .28rem var(--h6);
+	margin: var(--h6) 0;
 	cursor: pointer;
 	font-weight: bold;
     animation: transition 1s forwards;
 	transition-duration: .5s;
+
+	@media (max-width: 820px) {
+		font-size: var(--h6);
+	}
 `;
 
 const Images = styled.div`
-	width: 60%;
-	height: calc(100vh - 78px);
+	height: calc(100vh - 64px - var(--h4));
 	display: flex;
 	justify-content: center;
 	align-items: center;
 
-    @media (max-width: 920px) {
-        width: 100%;
+    @media (max-width: 670px) {
         height: 50vh;
-    }
-
-    @media (max-width: 560px) {
+		grid-row: 1 / 2;
         right: calc(10%);
         top: -5%;
     }

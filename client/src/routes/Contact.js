@@ -57,6 +57,11 @@ const MainContent = styled.main`
 	width: 100%;
 	display: flex;
     overflow-y: hidden;
+	height: calc(100vh - 64px);
+	align-items: center;
+	justify-content: center;
+	max-width: 1200px;
+	margin: auto;
 
     @media (max-width: 820px) {
         flex-direction: column;
@@ -64,13 +69,12 @@ const MainContent = styled.main`
 `;
 
 const Title = styled.h1`
-	font-size: 34px;
-	letter-spacing: 5px;
+	font-size: var(--h1);
+	letter-spacing: .28rem;
 `;
 
 const Content = styled.div`
 	width: 50%;
-	height: calc(100vh - 78px);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -79,7 +83,7 @@ const Content = styled.div`
     @media (max-width: 820px) {
         width: 100%;
         height: auto;
-        padding: 50px 0;
+        padding: var(--h6);
     }
 `;
 
@@ -91,8 +95,8 @@ const Social = styled.div`
 `;
 
 const ListItem = styled.li`
-	font-size: 20px;
-	margin: 5px 0;
+	font-size: var(--h5);
+	margin: .28rem 0;
 `;
 
 const Form = styled.form`
@@ -105,32 +109,32 @@ const Form = styled.form`
 const Input = styled.input`
 	border: none;
 	background: none;
-	color: #ffffff;
-	font-size: 20px;
-	padding: 5px 0;
+	color: #fff;
+	font-size: var(--h5);
+	padding: .28rem 0;
 	border-bottom: #E7A633 solid 2px;
-	margin: 10px 0;
+	margin: .5rem 0;
     font-family: 'Roboto Condensed';
 `;
 
 const Message = styled.textarea`
 	border: none;
 	background: none;
-	color: #ffffff;
-	font-size: 20px;
-	padding: 5px 0;
+	color: #fff;
+	font-size: var(--h5);
+	padding: .28rem 0;
     font-family: 'Roboto Condensed';
 	border-bottom: #E7A633 solid 2px;
-	margin: 10px 0;
+	margin: .5rem 0;
 `;
 
 const SendMessage = styled.button`
 	border: none;
 	background: #E7A633;
-	padding: 10px 15px;
-	color: #ffffff;
-	font-size: 20px;
-	margin: 10px 0;
+	padding: .5rem var(--h6);
+	color: #fff;
+	font-size: var(--h5);
+	margin: .5rem 0;
     font-family: 'Roboto Condensed';
 	font-weight: bold;
 	transform: skew(-.100rad) !important;

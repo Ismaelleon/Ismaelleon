@@ -12,12 +12,14 @@ function Navbar () {
 
 	return (
 		<Nav>
-			<Link style={LinkStyle} to="/"><Logo>Ismael León</Logo></Link>
-	        <MenuOpen onClick={toggleMenu}>Menu</MenuOpen>
+			<Link style={LogoStyle} to="/"><Logo>Ismael León</Logo></Link>
+	        <MenuOpen className={ menu ? 'open' : '' } onClick={toggleMenu}>
+				<span></span>
+				<span></span>
+			</MenuOpen>
         <NavLinks style={
             menu === true ? {left: '0%'} : {left: '-100%'}
         }>
-                <MenuExit onClick={toggleMenu}>Exit</MenuExit>
 				<NavLink className="link"><Link style={
 					location.pathname === '/' ?
 					SelectedLinkStyle :
@@ -45,33 +47,41 @@ function Navbar () {
 
 const Nav = styled.div `
 	width: 100%;
-	padding: 20px 30px;
+	padding: var(--h5) var(--h2);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
     @media (max-width: 540px) {
-        padding: 20px;
+        padding: var(--h5);
     }
 `;
 
 const Logo = styled.p`
-	color: #ffffff;
-	font-size: 24px;
+	color: #fff;
+	font-size: var(--h3);
+	font-weight: bold;
 `;
+
+const LogoStyle = {
+	textDecoration: 'none',
+	color: '#fff',
+	transform: 'skew(-.100rad)',
+	display: 'block'
+};
 
 const LinkStyle = {
 	textDecoration: 'none',
-	color: '#ffffff',
-	padding: '5px 15px',
+	color: '#fff',
+	padding: '.28rem var(--h6)',
 	transform: 'skew(-.100rad)',
 	display: 'block'
 };
 
 const SelectedLinkStyle = {
 	textDecoration: 'none',
-	color: '#ffffff',
-	padding: '5px 15px',
+	color: '#fff',
+	padding: '.28rem var(--h6)',
 	background: '#E7A633',
 	transform: 'skew(-.100rad)',
 	display: 'block'
@@ -81,15 +91,14 @@ const NavLinks = styled.ul`
 	display: flex;
 	list-style: none;
 
-    @media (max-width: 820px) {
+    @media (max-width: 670px) {
         position: absolute;
         width: 100%;
         height: 100vh;
         top: 0;
         left: -100%;
         background: #1D2125;
-        z-index: 4;
-        padding: 50px 20px;
+        z-index: 1;
         flex-direction: column;
         align-items: center;
         justify-content: center;
@@ -99,37 +108,60 @@ const NavLinks = styled.ul`
 `;
 
 const NavLink = styled.li`
-	color: #ffffff;
-	font-size: 18px;
+	color: #fff;
+	font-size: var(--h6);
 
-    @media (max-width: 820px) {
+    @media (max-width: 670px) {
         font-size: 24px;
-        margin: 10px 0;
+        margin: .5rem 0;
         min-width: 250px;
+		text-align: center;
     }
 `;
 
 const MenuOpen = styled.span`
     display: none;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	margin-left: auto;
+	height: 27px;
+	right: 0;
+	top: 0;
+	margin: var(--h5) var(--h2);
+	z-index: 2;
 
-    @media (max-width: 820px) {
-        display: block;
-        margin-left: auto;
-        transform: skew(-.1rad);
-        font-size: 24px;
-    }
-`;
+	& span {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 2px;
+		background-color: #fff;
+		transition-duration: .3s;
+		transform-origin: center;
+	}
 
-const MenuExit = styled.span`
-    display: none;
+	& span:nth-child(1) {
+		transform: translateY(-5px);
+	}
 
-    @media (max-width: 820px) {
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        display: block;
-        font-size: 24px;
-        transform: skew(-.1rad);
+	& span:nth-child(2) {
+		transform: translateY(5px);
+	}
+
+	&.open {
+		& span: nth-child(1) {
+			transform: translateY(0px) rotate(45deg);
+		}
+		
+		& span: nth-child(2) {
+			transform: translateY(0px) rotate(-45deg);
+		}
+	}
+
+    @media (max-width: 670px) {
+        display: flex;
     }
 `;
 

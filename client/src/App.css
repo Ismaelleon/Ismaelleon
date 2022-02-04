@@ -1,15 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700&display=swap');
 
+:root {
+	--h1: 1.802rem;
+	--h2: 1.602rem;
+	--h3: 1.424rem;
+	--h4: 1.266rem;
+	--h5: 1.125rem;
+	--h6: 1rem;
+}
+
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
+html {
+	font-size: 16px;
+}
+
 body {
 	background: #1D2125;
 	font-family: 'Roboto Condensed', 'Helvetica';
-	color: #ffffff;
+	color: #fff;
 }
 
 a, button, input {
@@ -17,10 +30,10 @@ a, button, input {
 }
 
 .image {
-    width: 400px;
+    width: 380px;
 }
 
-@media (max-width: 920px) {
+@media (max-width: 820px) {
     .image {
         width: 300px;
     }

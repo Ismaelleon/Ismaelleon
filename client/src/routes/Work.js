@@ -9,13 +9,13 @@ function Work () {
     let [work, setWork] = useState([]);
 
     useEffect(() => {
-        fetch('http://138.197.68.249:8080/work', {
+        fetch('http://ismaelleon.duckdns.org/work', {
             method: 'POST',
-	    credentials: 'include',
-	    headers: {
-		'Content-Type': 'application/json',
-		'Allow-Control-Allow-Origin': 'http://138.197.68.249:3000'
-	    }
+			credentials: 'include',
+			headers: {
+				'Content-Type': 'application/json',
+				'Allow-Control-Allow-Origin': 'http://ismaelleon.duckdns.org'
+			}
         }).then(res => res.json())
         .then(res => {
             setWork(res)
@@ -44,14 +44,16 @@ function Work () {
 
 const MainContent = styled.main`
     width: 100%;
-    height: calc(100vh - 78px);
-    padding: 50px;
+    height: calc(100vh - 64px);
+	padding: var(--h4) var(--h2);
     display: flex;
     flex-direction: column;
     overflow-y: hidden;
+	max-width: 1200px;
+	margin: auto;
 
-    @media (max-width: 680px) {
-        padding: 50px 20px;
+    @media (max-width: 670px) {
+		padding: var(--h5);
     }
 `;
 
@@ -64,33 +66,37 @@ const Projects = styled.div`
 
 const Project = styled.div`
     width: 100%;
-    padding: 10px;
+    padding: .5rem;
     transition-duration: .3s;
     background: #1D2125;
     display: flex;
     flex-direction: row;
     border-bottom: rgba(0, 0, 0, 0.18) solid 2px;
     align-items: center;
-    margin-bottom: 5px;
+    margin-bottom: .28rem;
 `;
 
 const ProjectName = styled.h2`
-    font-size: 24px;
+    font-size: var(--h3);
     color: rgb(231, 166, 51);
+
+	@media (max-width: 820px) {
+		font-size: var(--h4);
+	}
 `;
 
 const ProjectDate = styled.p`
-    font-size: 18px;
+    font-size: var(--h6);
 `;
 
 const ProjectLink = styled.a`
-    font-size: 18px;
+    font-size: var(--h6);
     margin-left: auto;
-    padding: 5px 10px;
+    padding: .28rem .5rem;
     background: rgb(231, 166, 51);
     transform: skew(-.1rad);
     text-decoration: none;
-    color: #ffffff;
+    color: #fff;
     font-weight: bold;
 `;
 
