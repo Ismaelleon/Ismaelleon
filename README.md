@@ -1,5 +1,5 @@
 # Welcome to my GitHub Profile! 🙃
-My name is Ismael León, I am 17 years old, and I am a self-taught **Web Developer** from Uruguay 🇺🇾.
+My name is Ismael León, I am 18 years old, and I am a self-taught **Web Developer** from Uruguay 🇺🇾.
 <br />
 
 You can check out my work on my [Portfolio Website](https://ismaelleon.glitch.me).
