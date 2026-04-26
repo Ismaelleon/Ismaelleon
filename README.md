@@ -1,5 +1,5 @@
 # Welcome to my GitHub Profile! 🙃
-My name is Ismael León, I am 21 years old, and I am a self-taught **Web Developer** from Uruguay 🇺🇾.
+My name is Ismael León, I'm a 22 years old software developer from Uruguay 🇺🇾.
 <br />
 
 You can check out my work on my [Portfolio Website](https://ismaelleon.github.io).
@@ -7,10 +7,17 @@ You can check out my work on my [Portfolio Website](https://ismaelleon.github.io
 If you have any doubt or comment, feel free to contact me via [E-mail](mailto:Ismaelleon@protonmail.com).
 <br />
 
-### Things that I am working on:
- - Keeping me updated with new technologies.
- - Learning something new every day.
- - Being a better person every day.
+### Main Projects:
+- [Meetio](https://github.com/Ismaelleon/meetio) - Start a relationship. Meet People.
+- [My Music Board 2](https://github.com/Ismaelleon/mmb2) - A ktt2 clone made with Node.js.
+- [Outfit Designer](https://github.com/Ismaelleon/outfit-designer) - Design your perfect outfit.
+
+### Side Projects
+- [Drawing Game](https://github.com/Ismaelleon/drawing-game) - Live drawing with your friends.
+- [Letter Soup Generator](https://github.com/Ismaelleon/letter-soup-generator) - Generate your custom letter soup games.
+- [Neo Snake](https://github.com/Ismaelleon/neo-snake) - A futuristic-styled snake game.
+- [Sudoku App](https://github.com/Ismaelleon/sudoku-app) - An ad free sudoku game I made for my sister.
+- [To-do CLI](https://github.com/Ismaelleon/todo-cli) - A todo list app inside your terminal.
 
 ### Languages and tools I use regularly:
 <div>
