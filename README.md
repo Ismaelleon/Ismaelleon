@@ -8,9 +8,9 @@ If you have any doubt or comment, feel free to contact me via [E-mail](mailto:Is
 <br />
 
 ### Main Projects:
-- [Meetio](https://github.com/Ismaelleon/meetio) - Start a relationship. Meet People.
-- [My Music Board 2](https://github.com/Ismaelleon/mmb2) - A ktt2 clone made with Node.js.
-- [Outfit Designer](https://github.com/Ismaelleon/outfit-designer) - Design your perfect outfit.
+- [Meetio](https://meetio.ismaelleon.xyz) - Start a relationship. Meet People.
+- [My Music Board 2](https://mmb2.ismaelleon.xyz) - A ktt2 clone made with Node.js.
+- [Outfit Designer](https://outfitdesigner.app) - Design your perfect outfit.
 
 ### Side Projects
 - [Drawing Game](https://github.com/Ismaelleon/drawing-game) - Live drawing with your friends.
