@@ -16,7 +16,6 @@ If you have any doubt or comment, feel free to contact me via [E-mail](mailto:Is
 - [Drawing Game](https://github.com/Ismaelleon/drawing-game) - Live drawing with your friends.
 - [Letter Soup Generator](https://github.com/Ismaelleon/letter-soup-generator) - Generate your custom letter soup games.
 - [Neo Snake](https://github.com/Ismaelleon/neo-snake) - A futuristic-styled snake game.
-- [Sudoku App](https://github.com/Ismaelleon/sudoku-app) - An ad free sudoku game I made for my sister.
 - [To-do CLI](https://github.com/Ismaelleon/todo-cli) - A todo list app inside your terminal.
 
 ### Languages and tools I use regularly:
